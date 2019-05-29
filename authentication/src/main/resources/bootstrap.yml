@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: auth-service
+  cloud:
+    config:
+      uri: http://localhost:8888
+      fail-fast: true
+      password: 1234
+      username: user
+
+#spring.security.filter.order=3
+#security.oauth2.resource.filter-order = 3
+security:
+  signing-key: MaYzkSjmkzPC57L
+  encoding-strength: 256
+  security-realm: Spring Boot JWT Example Realm
+
+#security.oauth2.resource.jwt.key-value=123

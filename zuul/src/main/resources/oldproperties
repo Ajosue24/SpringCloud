@@ -1,0 +1,69 @@
+#Puerto del Gatewate de Zuul
+server.port=8762
+server.use-forward-headers=true
+# Configuraci�n de Zuul
+zuul.prefix=/api
+zuul.strip-prefix=true
+zuul.host.socket-timeout-millis=180000
+zuul.sensitive-headers= Cookie,Set-Cookie
+spring.application.name=zuul-server
+zuul.ignored-headers=Access-Control-Allow-Credentials, Access-Control-Allow-Origin
+#spring.cloud.discovery.enabled=true
+#spring.cloud.service-registry.auto-registration.fail-fast=true
+#security.oauth2.client.user-authorization-uri=/api/oauth/authorize
+
+
+# Configuracion de la Base de Datos
+spring.datasource.url=jdbc:postgresql://localhost:5432/vytra2
+spring.datasource.username=postgres
+spring.datasource.password=postgres
+spring.jpa.hibernate.ddl-auto=none
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
+spring.datasource.driver-class-name=org.postgresql.Driver
+#spring.datasource.initialize=false
+spring.datasource.platform=postgresql
+spring.jpa.generate-ddl=true
+
+
+
+#URL Eureka
+# Configuraci�n de Eureka Server
+eureka.client.service-url.defaultZone=http://discUser:discPassword@localhost:8761/eureka/
+eureka.client.register-with-eureka=true
+eureka.client.fetch-registry=true
+eureka.instance.prefer-ip-address=true 
+
+
+
+# Configuraci�n de Ribbon
+ribbon.ReadTimeout=20000
+ribbon.eureka.enabled=true
+ribbon.ConnectTimeout=60000
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds=100000
+
+
+#Config Microservicios
+#Authenticacion
+zuul.routes.authentication.path=/oauth/**
+zuul.routes.authentication.serviceId=AUTHENTICATION-SERVICE
+zuul.routes.authentication.stripPrefix=false
+
+
+
+#REST
+zuul.routes.administration.path=/administration/**
+zuul.routes.administration.serviceId=ADMINISTRATION-SERVICE
+zuul.routes.administration.stripPrefix=false
+
+
+#REST
+zuul.routes.servicerequest.path=/notification/**
+zuul.routes.servicerequest.serviceId=NOTIFICATION
+zuul.routes.servicerequest.stripPrefix=false
+
+
+#spring.security.filter.order=5
+
+#security.oauth2.resource.jwt.key-value=123
+#security.signing-key=MaYzkSjmkzPC57L

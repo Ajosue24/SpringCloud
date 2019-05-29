@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cache</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body>
+
+<h2> Cache chanel </h2>
+
+<div>
+    <button id="connect">Conect</button>
+    &nbsp;
+    <button id="disconnect">Disconnect</button>
+    &nbsp;
+</div>
+<br><br>
+
+<div>
+    <label for="name">Module name</label>
+    <input id="name" type="text">
+    <br><br>
+    <label for="function">Function</label>
+    <input id="function" type="text">
+    <br><br>
+    <button id="send" type="submit">Send cache</button>
+</div>
+<br><br>
+
+<div class="messages-container">
+    <table>
+        <thead>
+        <tr>
+            <th>Cache messages</th>
+        </tr>
+        </thead>
+        <tbody id="msg"></tbody>
+    </table>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+<script src="js/stomp.js"></script>
+<script src="js/cache.js"></script>
+</body>
+</html>
